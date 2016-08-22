@@ -1,0 +1,133 @@
+Insert:
+
+INSERT INTO `school`.`teacher`
+(`first_name`,
+`last_name`,
+`age`,
+`salary`)
+VALUES
+('Mary','Jones',34,62000),
+('Roland','Cuffee',35,92000),
+('Brendan','DeAngelo',28,87000);
+SELECT * FROM school.teacher;
+
+INSERT INTO `school`.`class`
+(`name`,
+`description`,
+`teacher_id`)
+VALUES
+('math','algebra',1),
+('match','calculus',1),
+('history','european',2),
+('history','american',2),
+('gym','pe',3),
+('health','biology',3);
+
+INSERT INTO `school`.`student`
+(`first_name`,
+`last_name`,
+`grade`,
+`gpa`)
+VALUES
+('Roland','Cuffee',10,3.5),
+('Zarinah','Boykin',11,4.0),
+('Tara','Torsell',12,2.5),
+('Aniya','Cuffee',9,4.5),
+('Marion','Cuffee',10,3.0),
+('Asberry','Cuffee',11,3.4),
+('Joyce','Ellison',12,4.2),
+('John','Doe',9,2.9),
+('Jane','Foster',10,3.0),
+('Perry','Boykin',12,1.9);
+SELECT * FROM school.student;
+
+INSERT INTO `school`.`class_student`
+(`class_id`,
+`student_id`)
+VALUES
+(1,1),
+(1,2),
+(2,3),
+(3,4),
+(3,5),
+(3,6),
+(4,6),
+(5,1),
+(5,3),
+(6,1),
+(7,2),
+(7,4),
+(7,6),
+(8,1),
+(9,3),
+(9,4),
+(10,6);
+
+
+
+Query:
+
+SELECT * FROM school.teacher;
+
+SELECT * FROM school.class;
+
+SELECT * FROM school.student;
+
+SELECT `class`.`class_id`,
+    `class`.`name`,
+    `class`.`description`,
+    `class`.`teacher_id`
+FROM `school`.`class`
+WHERE teacher_id = 1 
+
+SELECT `class_student`.`class_student_id`,
+    `class_student`.`class_id`,
+    `class_student`.`student_id`
+FROM `school`.`class_student`
+WHERE class_id = 1
+
+SELECT `class_student`.`class_student_id`,
+    `class_student`.`class_id`,
+    `class_student`.`student_id`
+FROM `school`.`class_student`
+WHERE student_id = 1
+
+SELECT * FROM school.student;SELECT `student`.`student_id`,
+    `student`.`first_name`,
+    `student`.`last_name`,
+    `student`.`grade`,
+    `student`.`gpa`
+FROM `school`.`student`
+WHERE first_name LIKE 'a%';
+
+
+Update:
+
+UPDATE `school`.`teacher`
+SET
+`first_name` = 'Superman'
+
+WHERE `teacher_id` = 1
+
+UPDATE `school`.`class`
+SET
+`name` = 'Underwater Basket Weaving'
+
+WHERE `class_id` = 1;
+
+
+UPDATE `school`.`student`
+SET
+
+`first_name` = 'Wonder',
+`last_name` = 'Woman'
+
+WHERE `student_id` = 1;
+
+
+Delete:
+
+DELETE FROM `school`.`student`
+WHERE student_id = 10;
+
+
